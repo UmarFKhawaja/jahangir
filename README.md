@@ -63,10 +63,13 @@ echo "$(minikube ip) sample-app.local" | sudo tee -a /etc/hosts
 minikube ip # note the IP address
 notepad C:\Windows\System32\Drivers\etc\hosts # enter <minikube ip-address> sample-app.local on a new line, save and close
 
-kubectl apply -f manifests/pod.yaml
-kubectl delete -f manifests/pod.yaml
-
-kubectl apply -f manifests/deployment.yaml
-kubectl apply -f manifests/service.yaml
+kubectl apply -f manifests/backend-deployment.yaml
+kubectl apply -f manifests/backend-service.yaml
+kubectl apply -f manifests/frontend-deployment.yaml
+kubectl apply -f manifests/frontend-service.yaml
 kubectl apply -f manifests/ingress.yaml
 ```
+
+Navigation to http://sample-app.local/api to view the backend.
+
+Navigation to http://sample-app.local to view the frontend.
