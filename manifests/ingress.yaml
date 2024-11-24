@@ -10,17 +10,17 @@ spec:
     - host: sample-app.local
       http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sample-frontend-service
+                port:
+                  number: 80
           - path: /api
             pathType: Prefix
             backend:
               service:
                 name: sample-backend-service
-                port:
-                  number: 80
-          - path: /app
-            pathType: Prefix
-            backend:
-              service:
-                name: sample-frontend-service
                 port:
                   number: 80

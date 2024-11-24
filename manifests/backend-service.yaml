@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: sample-backend-service
 spec:
+  type: ClusterIP
   selector:
-    app: sample
+    app: sample-backend-deployment
   ports:
     - name: sample-backend-port
-      protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP

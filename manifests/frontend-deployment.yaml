@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sample
+      app: sample-frontend-deployment
   template:
     metadata:
       labels:
-        app: sample
+        app: sample-frontend-deployment
     spec:
       containers:
         - name: sample-frontend-container

@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: sample-frontend-service
 spec:
+  type: ClusterIP
   selector:
-    app: sample
+    app: sample-frontend-deployment
   ports:
     - name: sample-frontend-port
-      protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP
