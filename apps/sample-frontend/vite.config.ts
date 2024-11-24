@@ -6,5 +6,5 @@ export default defineConfig({
   server: {
     port: 4100
   },
-  plugins: [react()],
+  plugins: [react()]
 })

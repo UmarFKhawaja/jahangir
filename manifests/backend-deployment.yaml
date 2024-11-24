@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-deployment
+  name: sample-backend-deployment
 spec:
   replicas: 3
   selector:
@@ -13,21 +13,11 @@ spec:
         app: sample
     spec:
       containers:
-        - name: sample-backend
+        - name: sample-backend-container
           image: sample-backend:latest
+          imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 4000
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
-        - name: sample-frontend
-          image: sample-frontend:latest
-          ports:
-            - containerPort: 4100
+            - containerPort: 80
           resources:
             requests:
               memory: "64Mi"
