@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY dist ./lib
 COPY package.json .
+COPY package-lock.json .
 
-RUN npm install --omit=dev
+RUN npm clean-install
 
 CMD [ "node", "lib/index.js" ]
